@@ -1,7 +1,6 @@
 import React from 'react';
 
 function AddUserForm(props) {
-
     const [inputValue,setInputValue] = React.useState({
         firstName:"",
         lastName:"",

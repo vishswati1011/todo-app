@@ -2,12 +2,18 @@
 import './App.css';
 import TodoApp from './todo/todoApp';
 import User from './user/user';
+import  {TodoContext} from  './todo/todoContext';
+import React, {useState} from 'react';
 
-function App() {
+function App() { 
+  const [todos, setTodos] = useState([]);
+
   return (
     <div className="App">
-      {/* <TodoApp /> */}
-      <User />
+      <TodoContext.Provider value={{todos,setTodos}}>
+      <TodoApp />
+      {/* <User /> */}
+      </TodoContext.Provider>
     </div>
   );
 }

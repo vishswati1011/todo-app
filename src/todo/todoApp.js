@@ -1,10 +1,10 @@
-import React from "react";
+import React,{useContext} from "react";
 import TodoList from "./todoItem";
 import TodoForm from "./todoform";
-
+import { TodoContext } from "./todoContext";
 const TodoApp = () => {
-  const [todos, setTodos] = React.useState([]);
 
+  const { todos,setTodos } = useContext(TodoContext);
   const handleTodoCreate = (todo) => {
     // let id = Math.floor(Math.random() * 1000);
     let newTodos =[...todos];
