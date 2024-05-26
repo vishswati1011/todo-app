@@ -1,7 +1,7 @@
 
 import './App.css';
 import TodoApp from './todo/todoApp';
-import User from './user/user';
+import User from './graphQLUser/user';
 
 function App() {
   return (

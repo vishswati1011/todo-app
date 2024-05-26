@@ -1,42 +1,18 @@
 import React from 'react';
+import AddUserForm from './createUser';
+import { useFetchUserQuery } from '../user/rtk/userSlice';
 
-function AddUserForm(props) {
 
-    const [inputValue,setInputValue] = React.useState({
-        firstName:"",
-        lastName:"",
-        phone:""
-    });
+function UserTable (){
 
-    const handleChange = (e) => {
-        let {name,value} = e.target;
-        // setInputValue({
-        //     ...inputValue,
-        //     [name]: value
-        // });
-        setInputValue((prev)=>({
-            ...prev,
-            [name]:value
-        }))
-    }
-    const handleSave = (e) => {
-        e.preventDefault();
-        props.handleUserCreate(inputValue);
-    }
+    const {data, error, isLoading} = useFetchUserQuery();
     
-    return (
-        <div>
-            <form onSubmit={(e)=>handleSave(e)}>
-            <input type="text" placeholder="First Name" name="firstName" onChange={(e)=>handleChange(e)} />
-            <input type="text" placeholder="Last Name" name="lastName" onChange={(e)=>handleChange(e)} />
-            <input type="text" placeholder="Phone" name="phone" onChange={(e)=>handleChange(e) }/>
-            <button type="submit">Add User</button>
-            </form>
-        </div>
-    )
-}
-function UserTable (props){
-
+    if(isLoading){
+        return <div>Loading...</div>
+    }
+    if(error){
+        return <div>Oops! Something went wrong</div>
+    }
     return (
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
             <table style={{ border: '1px solid black' }}>
@@ -48,8 +24,8 @@ function UserTable (props){
                     </tr>
                 </thead>
                 <tbody>
-                    {props &&
-                        props?.users?.map((item, key) => (
+                    {data &&
+                        data?.map((item, key) => (
                             <tr key={key}>
                                 <td style={{ border: '1px solid black', padding: '10px' }}>{item?.firstName}</td>
                                 <td style={{ border: '1px solid black', padding: '10px' }}>{item?.lastName}</td>
@@ -63,21 +39,10 @@ function UserTable (props){
 
 }
 function User() {
-    const [users, setUsers] = React.useState([]);
-    const handleUserCreate = (user) => {
-            // let newUsers = [...users];
-            // newUsers.push(user);
-            // setUsers(newUsers);
-            setUsers((prevuser)=>([
-                ...prevuser,
-                user
-            ]))
-    };
     return (
         <div>
-            <UserTable users={users}/>
-            <br />
-            <AddUserForm handleUserCreate={handleUserCreate} />
+            <AddUserForm/><br/>
+            <UserTable/>
         </div>
     );
 }
