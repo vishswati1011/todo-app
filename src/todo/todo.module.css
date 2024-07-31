@@ -1,0 +1,92 @@
+
+.main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+}
+.todo_app{
+    width:300px;
+    display: flex;
+    flex-direction: column;
+    border:1px solid rgb(229, 11, 156);
+    border-radius: 5px;
+
+}
+.todo_form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 280px;
+    padding: 0px 10px;
+    height: 100px;
+    position: fixed;
+}
+.todo_input{
+    display: flex;
+    flex-direction: column;
+    width: 95%;
+}
+.todo_input label{
+    text-align: left;
+    padding: 10px 0px;
+}
+.todo_input input{
+    width: 90%;
+    padding: 5px;
+    border : 1px solid rgb(229, 11, 156);
+    border-radius: 5px;
+    margin-right: 5px;
+}
+.todo_input button{
+ margin-left: auto;
+}
+.todo_list{
+    margin-top:110px;
+    display: flex;
+    flex-direction: column;
+    width: 95%;
+    align-items: left;
+   
+}
+.todo_view{
+    position: relative;
+    padding: 10px;
+    height: auto;
+    overflow: auto;
+    max-height: 80vh;
+}
+.todo_list label{
+    text-align: left;
+    margin:10px;
+}
+.todo_list label{
+    margin-bottom: 10px;
+}
+.list{
+    display: flex;
+    background-color: rgb(206, 106, 222);
+    padding: 5px;
+    border-radius: 5px;
+    margin-bottom: 5px;
+}
+.list span{
+    width: 70%;
+    height: auto;
+    overflow:  hidden;
+    color: white;
+    text-align: left;  
+}
+.list input{
+    margin-right: 5px;
+    cursor: pointer;
+}
+.list button{
+    margin-left: auto;
+    background-color: red;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+

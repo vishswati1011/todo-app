@@ -1,6 +1,7 @@
 import React from "react";
 import TodoList from "./todoItem";
 import TodoForm from "./todoform";
+import styles from './todo.module.css';
 
 const TodoApp = () => {
   const [todos, setTodos] = React.useState([]);
@@ -28,11 +29,15 @@ const TodoApp = () => {
     setTodos(newTodos);
   }
   return (
-    <div>
-      todo goes here
-      <TodoList todos={todos} handleComplete={handleComplete} handleDelete={handleDelete} />
-      <TodoForm handleTodoCreate={handleTodoCreate} />
+    <div className={styles.main}>
+    <div className={styles.todo_app}>
+    
+    <TodoForm handleTodoCreate={handleTodoCreate} />
+    
+    <TodoList todos={todos} handleComplete={handleComplete} handleDelete={handleDelete} />
+
     </div>
+  </div>
   );
 };
 
