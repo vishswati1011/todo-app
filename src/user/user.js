@@ -1,6 +1,6 @@
 import React from 'react';
 import AddUserForm from './createUser';
-import { useFetchUserQuery } from '../user/rtk/userSlice';
+import { useFetchUserQuery } from '../rtk/userSlice';
 
 
 function UserTable (){

@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { useCreateUserMutation } from '../user/rtk/userSlice';
+import { useCreateUserMutation } from '../rtk/userSlice';
 
 function AddUserForm(props) {
 
